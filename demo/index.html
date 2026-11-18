@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Focus — AI Task Manager Demo</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">✦</span><span>focus<span class="dot">.</span></span></div>
+    <p class="eyebrow">РАБОЧЕЕ ПРОСТРАНСТВО</p>
+    <button class="nav active" data-filter="all">▦ <span>Все задачи</span><b id="navAll">0</b></button>
+    <button class="nav" data-filter="active">◷ <span>В работе</span><b id="navActive">0</b></button>
+    <button class="nav" data-filter="done">✓ <span>Завершённые</span><b id="navDone">0</b></button>
+    <div class="sidebar-bottom"><div class="avatar">AI</div><div><strong>Учебный проект</strong><small>Frontend demo</small></div></div>
+  </aside>
+  <main class="main">
+    <header><div><p class="eyebrow">ПОНЕДЕЛЬНИК, ВАШ ПЛАН</p><h1>Мои задачи</h1><p class="sub">Сосредоточьтесь на том, что действительно важно.</p></div><button class="primary" id="openModal">＋ Новая задача</button></header>
+    <section class="stats">
+      <article class="stat"><span>Всего задач</span><strong id="totalStat">0</strong><small>В вашем списке</small></article>
+      <article class="stat"><span>Выполнено</span><strong id="doneStat">0</strong><small id="doneHint">0% завершено</small></article>
+      <article class="stat"><span>Осталось</span><strong id="leftStat">0</strong><small>Можно сделать сегодня</small></article>
+    </section>
+    <section class="toolbar">
+      <div class="search">⌕ <input id="search" placeholder="Поиск по задачам..."></div>
+      <select id="priorityFilter"><option value="all">Все приоритеты</option><option value="high">Высокий</option><option value="medium">Средний</option><option value="low">Низкий</option></select>
+      <select id="sort"><option value="newest">Сначала новые</option><option value="priority">По приоритету</option><option value="az">По названию</option></select>
+    </section>
+    <div class="list-head"><h2 id="listTitle">Все задачи</h2><span id="countLabel">0 задач</span></div>
+    <section id="taskList" class="task-list"></section>
+    <footer>Демо-приложение · Данные хранятся локально в браузере <span>Создано для изучения AI-assisted development</span></footer>
+  </main>
+</div>
+<div class="modal-backdrop" id="modalBackdrop">
+ <form class="modal" id="taskForm">
+  <div class="modal-top"><h2 id="modalTitle">Новая задача</h2><button type="button" class="close" id="closeModal">×</button></div>
+  <label>Название задачи<input id="taskTitle" maxlength="90" required placeholder="Например, изучить React hooks"></label>
+  <label>Описание<textarea id="taskDescription" rows="3" placeholder="Что нужно сделать?"></textarea></label>
+  <div class="form-row"><label>Приоритет<select id="taskPriority"><option value="low">Низкий</option><option value="medium" selected>Средний</option><option value="high">Высокий</option></select></label><label>Срок<input id="taskDate" type="date"></label></div>
+  <button class="primary full" type="submit">Сохранить задачу</button>
+ </form>
+</div>
+<script src="app.js"></script>
+</body></html>
